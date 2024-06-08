@@ -16,6 +16,8 @@ type AppConfig struct {
 }
 
 func New() (AppConfig, error) {
+	os.Setenv("TZ", "UTC")
+
 	err := loadAndValidate()
 	if err != nil {
 		return AppConfig{}, err
